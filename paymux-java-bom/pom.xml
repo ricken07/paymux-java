@@ -24,31 +24,31 @@
       <dependency>
         <groupId>com.rickenbazolo</groupId>
         <artifactId>paymux-java-core</artifactId>
-        <version>${revision}</version>
+        <version>${project.version}</version>
       </dependency>
 
       <dependency>
         <groupId>com.rickenbazolo</groupId>
         <artifactId>paymux-java-http-client</artifactId>
-        <version>${revision}</version>
+        <version>${project.version}</version>
       </dependency>
 
       <dependency>
         <groupId>com.rickenbazolo</groupId>
         <artifactId>paymux-java-http-okhttp</artifactId>
-        <version>${revision}</version>
+        <version>${project.version}</version>
       </dependency>
 
       <dependency>
         <groupId>com.rickenbazolo</groupId>
         <artifactId>paymux-java-mtn-congo</artifactId>
-        <version>${revision}</version>
+        <version>${project.version}</version>
       </dependency>
 
       <dependency>
         <groupId>com.rickenbazolo</groupId>
         <artifactId>paymux-java-airtel-congo</artifactId>
-        <version>${revision}</version>
+        <version>${project.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
@@ -59,11 +59,8 @@
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>flatten-maven-plugin</artifactId>
         <configuration>
-          <flattenMode>bom</flattenMode>
-          <pomElements>
-            <properties>keep</properties>
-            <distributionManagement>remove</distributionManagement>
-          </pomElements>
+          <updatePomFile>true</updatePomFile>
+          <flattenMode>resolveCiFriendliesOnly</flattenMode>
         </configuration>
         <executions>
           <execution>
