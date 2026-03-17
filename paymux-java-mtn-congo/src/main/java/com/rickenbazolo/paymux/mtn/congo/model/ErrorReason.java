@@ -1,4 +1,4 @@
-package com.rickenbazolo.paymux.airtel.congo.model;
+package com.rickenbazolo.paymux.mtn.congo.model;
 
 /**
  * ErrorReason class description.

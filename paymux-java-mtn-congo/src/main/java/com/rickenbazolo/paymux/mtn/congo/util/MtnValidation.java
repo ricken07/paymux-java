@@ -1,4 +1,4 @@
-package com.rickenbazolo.paymux.airtel.congo.util;
+package com.rickenbazolo.paymux.mtn.congo.util;
 
 /**
  * Validation utilities for MTN Mobile Money operations.

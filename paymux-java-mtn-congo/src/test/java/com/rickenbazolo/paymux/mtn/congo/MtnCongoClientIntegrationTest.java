@@ -1,9 +1,9 @@
-package com.rickenbazolo.paymux.airtel.congo;
+package com.rickenbazolo.paymux.mtn.congo;
 
 import com.rickenbazolo.paymux.core.exception.TransferException;
 import com.rickenbazolo.paymux.core.operations.transfer.TransferResponse;
-import com.rickenbazolo.paymux.airtel.congo.collection.model.MtnRequestToPay;
-import com.rickenbazolo.paymux.airtel.congo.model.MtnTransactionStatus;
+import com.rickenbazolo.paymux.mtn.congo.collection.model.MtnRequestToPay;
+import com.rickenbazolo.paymux.mtn.congo.model.MtnTransactionStatus;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.condition.EnabledIfEnvironmentVariable;
 import org.slf4j.Logger;

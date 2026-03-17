@@ -1,4 +1,4 @@
-package com.rickenbazolo.paymux.airtel.congo.config;
+package com.rickenbazolo.paymux.mtn.congo.config;
 
 /**
  * Property keys for MTN Congo Mobile Money configuration.

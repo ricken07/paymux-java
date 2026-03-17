@@ -1,4 +1,4 @@
-package com.rickenbazolo.paymux.airtel.congo.collection.model;
+package com.rickenbazolo.paymux.mtn.congo.collection.model;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.rickenbazolo.paymux.core.operations.transfer.TransferResponse;

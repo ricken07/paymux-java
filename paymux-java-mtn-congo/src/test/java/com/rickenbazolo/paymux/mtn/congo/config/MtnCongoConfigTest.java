@@ -1,8 +1,8 @@
-package com.rickenbazolo.paymux.airtel.congo.config;
+package com.rickenbazolo.paymux.mtn.congo.config;
 
 import com.rickenbazolo.paymux.core.config.ConfigurationLoader;
 import com.rickenbazolo.paymux.core.http.PaymuxHttpClient;
-import com.rickenbazolo.paymux.airtel.congo.MtnCongoConfig;
+import com.rickenbazolo.paymux.mtn.congo.MtnCongoConfig;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;

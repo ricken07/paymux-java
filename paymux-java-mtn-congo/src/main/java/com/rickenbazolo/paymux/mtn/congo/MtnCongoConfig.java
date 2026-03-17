@@ -1,9 +1,9 @@
-package com.rickenbazolo.paymux.airtel.congo;
+package com.rickenbazolo.paymux.mtn.congo;
 
 import com.rickenbazolo.paymux.core.MobileMoneyConfig;
 import com.rickenbazolo.paymux.core.config.ConfigurationLoader;
 import com.rickenbazolo.paymux.core.http.PaymuxHttpClient;
-import com.rickenbazolo.paymux.airtel.congo.config.MtnCongoConfigProperties;
+import com.rickenbazolo.paymux.mtn.congo.config.MtnCongoConfigProperties;
 
 import java.util.Properties;
 

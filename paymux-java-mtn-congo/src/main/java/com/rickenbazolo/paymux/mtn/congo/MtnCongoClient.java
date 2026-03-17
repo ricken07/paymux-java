@@ -1,4 +1,4 @@
-package com.rickenbazolo.paymux.airtel.congo;
+package com.rickenbazolo.paymux.mtn.congo;
 
 import com.rickenbazolo.paymux.core.MobileMoneyClient;
 import com.rickenbazolo.paymux.core.enums.MoMoCurrency;
@@ -10,10 +10,10 @@ import com.rickenbazolo.paymux.core.operations.transfer.TransferRequest;
 import com.rickenbazolo.paymux.core.operations.transfer.TransferResponse;
 import com.rickenbazolo.paymux.core.operations.transfer.TransferResponseStatus;
 import com.rickenbazolo.paymux.http.client.DefaultPaymuxHttpClient;
-import com.rickenbazolo.paymux.airtel.congo.collection.model.MtnRequestToPay;
-import com.rickenbazolo.paymux.airtel.congo.service.MtnAuthService;
-import com.rickenbazolo.paymux.airtel.congo.service.MtnTransactionService;
-import com.rickenbazolo.paymux.airtel.congo.util.MtnValidation;
+import com.rickenbazolo.paymux.mtn.congo.collection.model.MtnRequestToPay;
+import com.rickenbazolo.paymux.mtn.congo.service.MtnAuthService;
+import com.rickenbazolo.paymux.mtn.congo.service.MtnTransactionService;
+import com.rickenbazolo.paymux.mtn.congo.util.MtnValidation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

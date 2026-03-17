@@ -1,11 +1,11 @@
-package com.rickenbazolo.paymux.airtel.congo.service;
+package com.rickenbazolo.paymux.mtn.congo.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.rickenbazolo.paymux.core.http.PaymuxHttpClient;
 import com.rickenbazolo.paymux.core.exception.PaymuxHttpException;
 import com.rickenbazolo.paymux.core.http.PaymuxHttpRequest;
-import com.rickenbazolo.paymux.airtel.congo.MtnCongoConfig;
-import com.rickenbazolo.paymux.airtel.congo.model.MtnAccessToken;
+import com.rickenbazolo.paymux.mtn.congo.MtnCongoConfig;
+import com.rickenbazolo.paymux.mtn.congo.model.MtnAccessToken;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

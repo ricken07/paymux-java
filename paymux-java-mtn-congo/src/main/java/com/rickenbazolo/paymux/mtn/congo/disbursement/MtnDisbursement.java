@@ -1,4 +1,4 @@
-package com.rickenbazolo.paymux.airtel.congo.disbursement;
+package com.rickenbazolo.paymux.mtn.congo.disbursement;
 
 import com.rickenbazolo.paymux.core.operations.cashin.CashinRequest;
 
