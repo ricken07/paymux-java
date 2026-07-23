@@ -1,0 +1,80 @@
+# ==============================================================================
+# MoMo4j Configuration Example - MTN Mobile Money Congo
+# ==============================================================================
+# This file provides an example configuration for the MTN Mobile Money Congo
+# client. Copy this file to src/main/resources/paymux.properties and fill in
+# your actual credentials.
+#
+# IMPORTANT: Never commit your actual API keys to version control!
+# Add paymux.properties to your .gitignore file.
+#
+# ENVIRONMENT VARIABLES SUPPORT:
+# You can use environment variables in your configuration using the syntax:
+#   ${ENV_VAR_NAME}           - Required: throws exception if not set
+#   ${ENV_VAR_NAME:default}   - Optional: uses default value if not set
+#
+# Example:
+#   paymux.mtn.congo.api-user=${CG_MOMO_API_USER}
+#   paymux.mtn.congo.api-key=${CG_MOMO_API_KEY:default-key}
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# MTN Congo - Required Configuration
+# ------------------------------------------------------------------------------
+
+# API User UUID
+# Get this from the MTN Developer Portal after creating an API user
+# Using environment variable (recommended for security):
+paymux.mtn.congo.api-user=${CG_MOMO_API_USER}
+# Or hardcode (not recommended for production):
+# paymux.mtn.congo.api-user=YOUR_API_USER_UUID_HERE
+
+# API Key (Password)
+# This is generated when you create an API user
+# Using environment variable (recommended for security):
+paymux.mtn.congo.api-key=${CG_MOMO_API_KEY}
+# Or hardcode (not recommended for production):
+# paymux.mtn.congo.api-key=YOUR_API_KEY_HERE
+
+# Subscription Key (Ocp-Apim-Subscription-Key)
+# Get this from your API subscription in the MTN Developer Portal
+# Using environment variable (recommended for security):
+paymux.mtn.congo.subscription-key=${CG_MOMO_SUBSCRIPTION_KEY}
+# Or hardcode (not recommended for production):
+# paymux.mtn.congo.subscription-key=YOUR_SUBSCRIPTION_KEY_HERE
+
+# ------------------------------------------------------------------------------
+# MTN Congo - Optional Configuration
+# ------------------------------------------------------------------------------
+
+# Target Environment
+# The environment where your API user was created
+# Default: mtncongo
+# Common values: mtncongo, sandbox
+paymux.mtn.congo.environment=mtncongo
+
+# Production Mode
+# Set to true for production API, false for sandbox
+# Default: false
+paymux.mtn.congo.production=false
+
+# Base URL
+# Override the default MTN API base URL (rarely needed)
+# Default: Auto-detected based on production flag
+#paymux.mtn.congo.base-url=
+
+# Callback URL
+# Your webhook URL for receiving transaction status notifications
+# MTN will POST transaction updates to this URL
+# Example: paymux.mtn.congo.callback-url=https://your-domain.com/webhooks/mtn
+#paymux.mtn.congo.callback-url=
+
+# Connection Timeout (milliseconds)
+# Maximum time to wait when establishing a connection
+# Default: 30000 (30 seconds)
+#paymux.mtn.congo.connection-timeout=30000
+
+# Request Timeout (milliseconds)
+# Maximum time to wait for a response from the API
+# Default: 60000 (60 seconds)
+#paymux.mtn.congo.request-timeout=60000

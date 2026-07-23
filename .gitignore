@@ -28,6 +28,7 @@ buildNumber.properties
 .idea/usage.statistics.xml
 .idea/dictionaries
 .idea/shelf
+.idea/
 *.iws
 *.iml
 *.ipr
@@ -57,3 +58,4 @@ build/
 
 ### Mac OS ###
 .DS_Store
+/.idea/

@@ -139,18 +139,18 @@ jobs:
             ```xml
             <dependency>
                 <groupId>com.rickenbazolo</groupId>
-                <artifactId>momo4j</artifactId>
+                <artifactId>paymux-java-bom</artifactId>
                 <version>${{ steps.get_version.outputs.VERSION }}</version>
             </dependency>
             ```
 
             ### Gradle
             ```groovy
-            implementation 'com.rickenbazolo:momo4j:${{ steps.get_version.outputs.VERSION }}'
+            implementation 'com.rickenbazolo:paymux-java-mtn-congo:${{ steps.get_version.outputs.VERSION }}'
             ```
 
             ### Links
-            - [Maven Central](https://central.sonatype.com/artifact/com.rickenbazolo/momo4j/${{ steps.get_version.outputs.VERSION }})
+            - [Maven Central](https://central.sonatype.com/artifact/com.rickenbazolo/paymux-java-bom/${{ steps.get_version.outputs.VERSION }})
             - [Documentation](https://github.com/${{ github.repository }}/blob/${{ steps.get_version.outputs.TAG }}/README.md)
             - [Changelog](https://github.com/${{ github.repository }}/blob/${{ steps.get_version.outputs.TAG }}/CHANGELOG.md)
           draft: false
@@ -187,7 +187,7 @@ jobs:
           echo "- **Pre-release**: ${{ steps.get_version.outputs.IS_PRERELEASE }}" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "### Artifacts" >> $GITHUB_STEP_SUMMARY
-          echo "- [Maven Central](https://central.sonatype.com/artifact/com.rickenbazolo/momo4j/${{ steps.get_version.outputs.VERSION }})" >> $GITHUB_STEP_SUMMARY
+          echo "- [Maven Central](https://central.sonatype.com/artifact/com.rickenbazolo/paymux-java-bom/${{ steps.get_version.outputs.VERSION }})" >> $GITHUB_STEP_SUMMARY
           echo "- [GitHub Release](https://github.com/${{ github.repository }}/releases/tag/${{ steps.get_version.outputs.TAG }})" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "### Next Steps" >> $GITHUB_STEP_SUMMARY

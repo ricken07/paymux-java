@@ -7,13 +7,13 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.rickenbazolo</groupId>
-  <artifactId>momo4j-parent</artifactId>
-  <version>0.0.4-SNAPSHOT</version>
+  <artifactId>paymux-java-parent</artifactId>
+  <version>${revision}</version>
   <packaging>pom</packaging>
 
-  <name>momo4j</name>
+  <name>paymux-java</name>
   <description>Unified Java SDK for consuming Mobile Money APIs</description>
-  <url>https://github.com/ricken07/momo4j</url>
+  <url>https://github.com/ricken07/paymux-java</url>
 
   <licenses>
     <license>
@@ -32,27 +32,27 @@
   </developers>
 
   <scm>
-    <connection>scm:git:git://github.com/ricken07/momo4j.git</connection>
-    <developerConnection>scm:git:ssh://git@github.com/ricken07/momo4j.git</developerConnection>
-    <url>https://github.com/ricken07/momo4j/tree/main</url>
+    <connection>scm:git:git://github.com/ricken07/paymux-java.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com/ricken07/paymux-java.git</developerConnection>
+    <url>https://github.com/ricken07/paymux-java/tree/main</url>
   </scm>
 
   <modules>
-    <module>momo4j-bom</module>
-    <module>momo4j-core</module>
-    <module>momo4j-http-client</module>
-    <module>momo4j-mtn-congo</module>
+    <module>paymux-java-bom</module>
+    <module>paymux-java-core</module>
+    <module>paymux-java-http-client</module>
+    <module>paymux-java-mtn-congo</module>
   </modules>
 
   <properties>
-    <revision>0.0.1-SNAPSHOT</revision>
+    <revision>0.0.4-SNAPSHOT</revision>
 
     <maven.compiler.source>17</maven.compiler.source>
     <maven.compiler.target>17</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
     <junit.version>5.10.2</junit.version>
-    <jackson.version>2.17.2</jackson.version>
+    <jackson.version>2.19.0</jackson.version>
     <assertj.version>3.26.3</assertj.version>
     <mockito.version>5.11.0</mockito.version>
     <slf4j.version>2.0.13</slf4j.version>
@@ -72,13 +72,13 @@
     <dependencies>
       <dependency>
         <groupId>com.rickenbazolo</groupId>
-        <artifactId>momo4j-core</artifactId>
-        <version>0.0.4-SNAPSHOT</version>
+        <artifactId>paymux-java-core</artifactId>
+        <version>${revision}</version>
       </dependency>
       <dependency>
         <groupId>com.rickenbazolo</groupId>
-        <artifactId>momo4j-http-client</artifactId>
-        <version>0.0.4-SNAPSHOT</version>
+        <artifactId>paymux-java-http-client</artifactId>
+        <version>${revision}</version>
       </dependency>
 
       <!-- Jackson -->

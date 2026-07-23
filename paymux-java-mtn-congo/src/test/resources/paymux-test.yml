@@ -1,0 +1,21 @@
+# Test configuration for MTN Congo Integration Tests
+# These are example/test credentials - replace with real ones for actual testing
+
+paymux:
+  mtn:
+    congo:
+      # Test API credentials (use sandbox credentials here)
+      api-user: "test-api-user-uuid"
+      api-key: "test-api-key"
+      subscription-key: "test-subscription-key"
+
+      # Environment settings
+      environment: "sandbox"
+      production: false
+
+      # Test timeouts
+      connection-timeout: 10000
+      request-timeout: 20000
+
+      # Optional callback URL for testing
+      callback-url: "https://webhook.site/test-callback"
