@@ -40,6 +40,12 @@ public final class MtnValidation {
                 "Invalid MTN phone number: must contain only digits"
             );
         }
+
+        if (!phoneNumber.matches("^06\\d{7}$")) {
+            throw new IllegalArgumentException(
+                    "Invalid MTN Congo phone number: must start with 06"
+            );
+        }
     }
 
     /**
@@ -68,8 +74,8 @@ public final class MtnValidation {
      * @throws IllegalArgumentException if the amount is invalid
      */
     public static void validateAmount(double amount) {
-        if (amount <= 0) {
-            throw new IllegalArgumentException("Amount must be positive (got " + amount + ")");
+        if (amount < 50) {
+            throw new IllegalArgumentException("Amount must >= 50 XAF (got " + amount + ")");
         }
     }
 
