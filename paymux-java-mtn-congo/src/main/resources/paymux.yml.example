@@ -1,5 +1,5 @@
 # ==============================================================================
-# MoMo4j Configuration Example - MTN Mobile Money Congo (YAML Format)
+# Paymux Configuration Example - MTN Mobile Money Congo (YAML Format)
 # ==============================================================================
 # This file provides an example YAML configuration for the MTN Mobile Money
 # Congo client. Copy this file to src/main/resources/paymux.yml and fill in

@@ -18,34 +18,30 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Client for MTN Mobile Money Congo operations.
+ * Client for MTN Mobile Money Congo-Brazzaville.
  * <p>
- * This client provides a high-level interface for interacting with the MTN Mobile Money API
- * for Congo-Brazzaville. It supports Transfer (Request to Pay / Collection) operations.
- * </p>
- * <p>
- * MTN Request to Pay allows merchants to request payment from customers. The customer
- * receives a USSD prompt on their phone to approve or decline the payment.
+ * This client provides a high-level interface for Request to Pay operations.
+ * A payer receives a USSD prompt on their phone and can approve or decline the payment.
  * </p>
  *
  * <p>Example usage:</p>
  * <pre>{@code
- * MtnCongoConfig config = MtnCongoConfig.builder()
- *     .apiUser("your-api-user-uuid")
- *     .apiKey("your-api-key")
- *     .subscriptionKey("your-subscription-key")
- *     .environment("mtncongo")
- *     .production(false)
- *     .build();
+ * MtnCongoConfig config = MtnCongoConfig.fromPropertiesFile("paymux.yml");
  *
- * MtnCongoClient client = new MtnCongoClient(config);
+ * try (MtnCongoClient client = new MtnCongoClient(config)) {
+ *     MtnRequestToPay request = MtnRequestToPay.builder()
+ *         .amount("1000")
+ *         .currency(MoMoCurrency.XAF.getValue())
+ *         .externalId(UUID.randomUUID().toString())
+ *         .payerPhone("242065551234")
+ *         .payerMessage("Payment for order #123")
+ *         .payeeNote("Order #123")
+ *         .build();
  *
- * // Create your implementation of TransferRequest with the required fields
- * // (amount, currency, externalId, recipientPhoneNumber)
- *
- * TransferResponse response = client.transfer(request);
- * System.out.println("Transaction ID: " + response.transactionId());
- * System.out.println("Status: " + response.status());
+ *     TransferResponse response = client.transfer(request);
+ *     System.out.println("Transaction ID: " + response.transactionId());
+ *     System.out.println("Status: " + response.status());
+ * }
  * }</pre>
  *
  * @author Ricken Bazolo
@@ -91,13 +87,13 @@ public class MtnCongoClient implements MobileMoneyClient<MtnCongoConfig>, Transf
             var accessToken = authService.getAccessToken();
 
             if (transferRequest instanceof MtnRequestToPay mtnRequest) {
-                // Build MTN request using the externalId from the request
+                // Build the MTN request using the externalId from the request
                 var mtnRequestTopay = buildMtnRequest(mtnRequest);
 
-                // Execute request to pay
+                // Execute the Request to Pay flow
                 String externalId = transactionService.requestToPay(mtnRequestTopay, accessToken);
 
-                // Build response
+                // Build the initial PENDING response
                 return new MtnTransferResponse(
                         externalId,
                         MoMoTransferStatus.PENDING.name(),

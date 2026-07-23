@@ -1,15 +1,15 @@
 package com.rickenbazolo.paymux.mtn.congo.config;
 
 /**
- * Property keys for MTN Congo Mobile Money configuration.
+ * Property keys for MTN Mobile Money Congo-Brazzaville configuration.
  * <p>
  * This class defines the hierarchy of property keys used to configure the MTN Congo client.
- * All properties should be prefixed with "paymux.mtn.congo." to avoid conflicts.
+ * All properties should be prefixed with {@code paymux.mtn.congo.} to avoid conflicts.
  * </p>
  * <p>
  * Example properties file:
  * <pre>
- * # MTN Congo Configuration
+ * # MTN Mobile Money Congo-Brazzaville Configuration
  * paymux.mtn.congo.api-user=dceae61b-c281-44e2-9df9-3bc3968f4baa
  * paymux.mtn.congo.api-key=0ea4abb5d7b54beab0c38ab092bcf814
  * paymux.mtn.congo.subscription-key=2d046e84720f4ddeac06d5f76804b5bf
@@ -27,7 +27,7 @@ package com.rickenbazolo.paymux.mtn.congo.config;
 public final class MtnCongoConfigProperties {
 
     /**
-     * Property key prefix for all MTN Congo configuration.
+     * Property key prefix for all MTN Mobile Money Congo-Brazzaville configuration.
      */
     public static final String PREFIX = "paymux.mtn.congo.";
 
@@ -57,7 +57,7 @@ public final class MtnCongoConfigProperties {
     public static final String SUBSCRIPTION_KEY = PREFIX + "subscription-key";
 
     /**
-     * Target environment (optional, default: "mtncongo").
+     * Target environment (optional, default: {@code mtncongo}).
      * <p>
      * This identifies the environment in which your API user was created.
      * Common values: "mtncongo", "sandbox"

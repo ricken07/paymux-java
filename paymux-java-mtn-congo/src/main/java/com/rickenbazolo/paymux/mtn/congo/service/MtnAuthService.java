@@ -13,7 +13,7 @@ import java.time.Instant;
 import java.util.Base64;
 
 /**
- * Service for handling MTN Mobile Money authentication.
+ * Service for handling MTN Mobile Money Congo-Brazzaville authentication.
  * <p>
  * This service manages access token retrieval and caching.
  * Tokens are cached and reused until they expire to minimize API calls.

@@ -38,7 +38,6 @@ public final class ConfigurationLoader {
 
     private static final String[] DEFAULT_YAML_FILES = {
         "paymux.yml",
-        "momo4j.yaml",
         "application.yml",
         "application.yaml"
     };
@@ -58,12 +57,12 @@ public final class ConfigurationLoader {
     /**
      * Loads properties from the classpath.
      * <p>
-     * Attempts to load from default property and YAML file names:
-     * <ul>
-     *   <li>paymux.yml / momo4j.yaml</li>
-     *   <li>application.yml / application.yaml</li>
-     *   <li>paymux.properties</li>
-     *   <li>application.properties</li>
+ * Attempts to load from default property and YAML file names:
+ * <ul>
+ *   <li>paymux.yml</li>
+ *   <li>application.yml / application.yaml</li>
+ *   <li>paymux.properties</li>
+ *   <li>application.properties</li>
      * </ul>
      * YAML files take precedence over properties files.
      * </p>
@@ -259,7 +258,8 @@ public final class ConfigurationLoader {
     /**
      * Flattens a nested YAML map into dot-notation properties.
      * <p>
-     * Example: {momo4j: {airtel: {congo: {api-user: "xxx"}}}} becomes "paymux.airtel.congo.api-user" = "xxx"
+     * Example: {paymux: {mtn: {congo: {api-user: "xxx"}}}} becomes
+     * "paymux.mtn.congo.api-user" = "xxx"
      * </p>
      *
      * @param prefix the current key prefix
