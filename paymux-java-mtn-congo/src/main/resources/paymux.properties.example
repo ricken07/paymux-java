@@ -1,5 +1,5 @@
 # ==============================================================================
-# MoMo4j Configuration Example - MTN Mobile Money Congo
+# Paymux Configuration Example - MTN Mobile Money Congo
 # ==============================================================================
 # This file provides an example configuration for the MTN Mobile Money Congo
 # client. Copy this file to src/main/resources/paymux.properties and fill in

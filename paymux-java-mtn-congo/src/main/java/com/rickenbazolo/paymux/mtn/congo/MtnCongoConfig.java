@@ -153,7 +153,7 @@ public class MtnCongoConfig implements MobileMoneyConfig {
      * <p>
      * This method will attempt to load properties from (in order of precedence):
      * <ul>
-     *   <li>paymux.yml / momo4j.yaml</li>
+     *   <li>paymux.yml</li>
      *   <li>application.yml / application.yaml</li>
      *   <li>paymux.properties</li>
      *   <li>application.properties</li>

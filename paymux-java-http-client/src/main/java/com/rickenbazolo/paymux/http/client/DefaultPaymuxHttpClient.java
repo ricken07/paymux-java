@@ -18,9 +18,9 @@ import java.time.Duration;
 import java.util.concurrent.CompletableFuture;
 
 /**
- * Default HTTP client implementation using java.net.http.HttpClient.
+ * Default HTTP client implementation using {@code java.net.http.HttpClient}.
  * <p>
- * This implementation requires Java 11+ and provides zero external dependencies.
+ * This implementation requires Java 11+ and keeps the HTTP layer framework-free.
  * It supports both synchronous and asynchronous HTTP operations with HTTP/2 by default.
  * </p>
  *
@@ -41,8 +41,8 @@ import java.util.concurrent.CompletableFuture;
  * var response = httpClient.execute(request);
  * }</pre>
  *
-
- * @author Ricken Bazolo * @since 0.1.0
+ * @author Ricken Bazolo
+ * @since 0.1.0
  */
 public class DefaultPaymuxHttpClient implements PaymuxHttpClient {
 
@@ -122,9 +122,9 @@ public class DefaultPaymuxHttpClient implements PaymuxHttpClient {
 
     @Override
     public void close() {
-        // java.net.http.PaymuxHttpClient does not require explicit closing
+        // java.net.http.HttpClient does not require explicit closing
         // Connection pooling is managed automatically
-        log.debug("DefaultPaymuxHttpClient closed (no-op for java.net.http.PaymuxHttpClient)");
+        log.debug("DefaultPaymuxHttpClient closed (no-op for java.net.http.HttpClient)");
     }
 
     /**

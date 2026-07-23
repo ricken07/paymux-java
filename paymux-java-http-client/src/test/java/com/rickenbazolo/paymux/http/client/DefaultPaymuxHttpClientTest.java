@@ -190,7 +190,7 @@ class DefaultPaymuxHttpClientTest {
             .url("https://httpbin.org/headers")
             .method("GET")
             .header("X-Custom-Header", "custom-value")
-            .header("User-Agent", "momo4j-test")
+            .header("User-Agent", "paymux-test")
             .build();
 
         var response = httpClient.execute(request);

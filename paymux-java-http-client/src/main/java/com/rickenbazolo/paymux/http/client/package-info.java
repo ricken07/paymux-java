@@ -1,5 +1,5 @@
 /**
- * Default HTTP client implementation using java.net.http.PaymuxHttpClient.
+ * Default HTTP client implementation using {@code java.net.http}.
  * <p>
  * This package provides {@link com.rickenbazolo.paymux.http.client.DefaultPaymuxHttpClient},
  * the default implementation of {@link com.rickenbazolo.paymux.core.http.PaymuxHttpClient}
@@ -8,7 +8,7 @@
  *
  * <h2>Features</h2>
  * <ul>
- *   <li>Zero external dependencies (uses java.net.http)</li>
+ *   <li>No framework dependency</li>
  *   <li>HTTP/2 support by default</li>
  *   <li>Both synchronous and asynchronous operations</li>
  *   <li>Configurable timeouts and redirects</li>
@@ -36,7 +36,7 @@
  * System.out.println("Body: " + response.bodyAsString());
  * }</pre>
  *
-
- * @author Ricken Bazolo * @since 0.1.0
+ * @author Ricken Bazolo
+ * @since 0.1.0
  */
 package com.rickenbazolo.paymux.http.client;

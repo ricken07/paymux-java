@@ -13,7 +13,7 @@ import org.slf4j.LoggerFactory;
 import java.nio.charset.StandardCharsets;
 
 /**
- * Service for handling MTN Mobile Money transaction operations.
+ * Service for handling MTN Mobile Money Congo-Brazzaville transaction operations.
  * <p>
  * This service handles Request to Pay initiation and transaction status queries.
  * </p>
