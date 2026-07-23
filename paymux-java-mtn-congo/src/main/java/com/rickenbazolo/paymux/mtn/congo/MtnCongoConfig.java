@@ -31,7 +31,8 @@ public class MtnCongoConfig implements MobileMoneyConfig {
 
     private static final String SANDBOX_URL = "https://sandbox.momodeveloper.mtn.com/";
     private static final String PRODUCTION_URL = "https://ericssonbasicapi1.azure-api.net/";
-    private static final String DEFAULT_ENVIRONMENT = "sandbox";
+    private static final String SANDBOX_ENVIRONMENT = "sandbox";
+    private static final String PRODUCTION_ENVIRONMENT = "mtncongo";
 
     private final String apiUser;
     private final String apiKey;
@@ -226,7 +227,7 @@ public class MtnCongoConfig implements MobileMoneyConfig {
         private String apiUser;
         private String apiKey;
         private String subscriptionKey;
-        private String environment = DEFAULT_ENVIRONMENT;
+        private String environment;
         private String baseUrl;
         private String callbackUrl;
         private boolean production = false;
@@ -389,6 +390,10 @@ public class MtnCongoConfig implements MobileMoneyConfig {
 
             if (baseUrl == null || baseUrl.isBlank()) {
                 baseUrl = production ? PRODUCTION_URL : SANDBOX_URL;
+            }
+
+            if (environment == null || environment.isBlank()) {
+                environment = production ? PRODUCTION_ENVIRONMENT : SANDBOX_ENVIRONMENT;
             }
 
             if (!baseUrl.endsWith("/")) {
