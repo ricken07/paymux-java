@@ -8,7 +8,7 @@
 
   <groupId>com.rickenbazolo</groupId>
   <artifactId>paymux-java-parent</artifactId>
-  <version>0.0.5</version>
+  <version>0.0.6-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <name>paymux-java</name>
@@ -73,12 +73,12 @@
       <dependency>
         <groupId>com.rickenbazolo</groupId>
         <artifactId>paymux-java-core</artifactId>
-        <version>0.0.5</version>
+        <version>0.0.6-SNAPSHOT</version>
       </dependency>
       <dependency>
         <groupId>com.rickenbazolo</groupId>
         <artifactId>paymux-java-http-client</artifactId>
-        <version>0.0.5</version>
+        <version>0.0.6-SNAPSHOT</version>
       </dependency>
 
       <!-- Jackson -->
