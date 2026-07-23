@@ -6,7 +6,7 @@
  *   <li>{@link com.rickenbazolo.paymux.core.MobileMoneyClient} - Base client interface</li>
  *   <li>{@link com.rickenbazolo.paymux.core.MobileMoneyConfig} - Configuration interface</li>
  *   <li>{@link com.rickenbazolo.paymux.core.http} - HTTP abstraction layer</li>
- *   <li>{@link com.rickenbazolo.paymux.core.operations} - Common operation interfaces</li>
+ *   <li>{@code com.rickenbazolo.paymux.core.operations} - Common operation interfaces</li>
  * </ul>
  * <p>
  * Operator-specific modules (for example {@code paymux-java-mtn-congo} and future provider modules)
