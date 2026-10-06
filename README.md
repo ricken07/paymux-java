@@ -3,46 +3,18 @@
 [![Maven Central](https://img.shields.io/maven-central/v/com.rickenbazolo/paymux-java-bom.svg)](https://central.sonatype.com/artifact/com.rickenbazolo/paymux-java-bom)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Paymux stands for Payment Multiplexer.
+Paymux (Payment Multiplexer) is a Java SDK for Mobile Money integrations. It gives every
+provider - MTN, PawaPay, and whatever comes next - the same shape of client, so your application
+code doesn't change when you add or swap a provider.
 
-Paymux is a modular Java SDK for Mobile Money integrations.
-
-The project is designed around one core idea: keep the API surface consistent while isolating provider-specific behavior in dedicated modules. Today, the repository ships the shared core abstractions, a default HTTP client, and a first provider implementation for MTN Mobile Money Congo-Brazzaville.
+It exists to keep that provider-specific plumbing out of your codebase: no framework dependency,
+type-safe requests and responses, and modules you pull in one at a time.
 
 ## Current Scope
 
-- Shared core interfaces and abstractions
-- Default HTTP client based on `java.net.http`
-- MTN Mobile Money Congo-Brazzaville support
-- Classpath-based configuration loading
-- Synchronous and asynchronous HTTP support at the client layer
-
-## Why This Project Exists
-
-- Reduce the cost of integrating Mobile Money APIs
-- Keep operator-specific logic out of application code
-- Avoid framework lock-in
-- Provide type-safe request and response models
-- Let consumers use only the modules they need
-
-## What Is Implemented Today
-
-### Available modules
-
-- `paymux-java-bom` - dependency management
-- `paymux-java-core` - core interfaces, HTTP abstraction, shared models
-- `paymux-java-http-client` - default `java.net.http` implementation
-- `paymux-java-mtn-congo` - MTN Mobile Money Congo-Brazzaville client
-
-### Supported provider
-
-- MTN Mobile Money Congo-Brazzaville
-
-### Planned providers
-
-- Airtel Money Congo
-- Orange Money RDC
-- Other African operators
+- Core interfaces shared by every provider (see [Core](doc/core.md))
+- MTN Mobile Money Congo-Brazzaville, direct integration (see [MTN Congo](doc/mtn-congo.md))
+- PawaPay, one API token across many African providers (see [PawaPay](doc/pawapay.md))
 
 ## Installation
 
@@ -68,6 +40,11 @@ Use the BOM to keep module versions aligned.
     <groupId>com.rickenbazolo</groupId>
     <artifactId>paymux-java-mtn-congo</artifactId>
   </dependency>
+  <!-- or -->
+  <dependency>
+    <groupId>com.rickenbazolo</groupId>
+    <artifactId>paymux-java-pawapay</artifactId>
+  </dependency>
 </dependencies>
 ```
 
@@ -76,90 +53,17 @@ Use the BOM to keep module versions aligned.
 ```groovy
 implementation platform('com.rickenbazolo:paymux-java-bom:VERSION')
 implementation 'com.rickenbazolo:paymux-java-mtn-congo'
-```
-
-## Configuration
-
-The MTN Congo module reads its settings from classpath properties or YAML.
-
-### Supported keys
-
-Prefix all MTN Congo settings with `paymux.mtn.congo.`
-
-- `api-user`
-- `api-key`
-- `subscription-key`
-- `environment`
-- `production`
-- `base-url`
-- `callback-url`
-- `connection-timeout`
-- `request-timeout`
-
-### Example `paymux.yml`
-
-```yaml
-paymux:
-  mtn:
-    congo:
-      api-user: ${CG_MOMO_API_USER}
-      api-key: ${CG_MOMO_API_KEY}
-      subscription-key: ${CG_MOMO_SUBSCRIPTION_KEY}
-      environment: mtncongo
-      production: false
-      connection-timeout: 30000
-      request-timeout: 60000
-```
-
-### Example `paymux.properties`
-
-```properties
-paymux.mtn.congo.api-user=${CG_MOMO_API_USER}
-paymux.mtn.congo.api-key=${CG_MOMO_API_KEY}
-paymux.mtn.congo.subscription-key=${CG_MOMO_SUBSCRIPTION_KEY}
-paymux.mtn.congo.environment=mtncongo
-paymux.mtn.congo.production=false
-paymux.mtn.congo.connection-timeout=30000
-paymux.mtn.congo.request-timeout=60000
-```
-
-## Usage
-
-### Load configuration
-
-```java
-MtnCongoConfig config = MtnCongoConfig.fromProperties();
 // or
-MtnCongoConfig config = MtnCongoConfig.fromPropertiesFile("paymux.yml");
+implementation 'com.rickenbazolo:paymux-java-pawapay'
 ```
 
-### Create a transfer request
+## Documentation
 
-```java
-import com.rickenbazolo.paymux.core.enums.MoMoCurrency;
-import com.rickenbazolo.paymux.core.operations.transfer.TransferResponse;
-import com.rickenbazolo.paymux.mtn.congo.MtnCongoClient;
-import com.rickenbazolo.paymux.mtn.congo.MtnCongoConfig;
-import com.rickenbazolo.paymux.mtn.congo.collection.model.MtnRequestToPay;
+Configuration, client usage and examples for each module live under [`doc/`](doc/index.md):
 
-import java.util.UUID;
-
-MtnCongoConfig config = MtnCongoConfig.fromPropertiesFile("paymux.yml");
-
-try (MtnCongoClient client = new MtnCongoClient(config)) {
-    MtnRequestToPay request = MtnRequestToPay.builder()
-        .amount("1000")
-        .currency(MoMoCurrency.XAF.getValue())
-        .externalId(UUID.randomUUID().toString())
-        .payerPhone("242065551234")
-        .payerMessage("Payment for order #123")
-        .payeeNote("Order #123")
-        .build();
-
-    TransferResponse response = client.transfer(request);
-    var status = client.getTransferStatus(response.transactionId());
-}
-```
+- [Core](doc/core.md) - shared interfaces, HTTP abstraction, configuration loading
+- [MTN Congo](doc/mtn-congo.md) - direct MTN Mobile Money client
+- [PawaPay](doc/pawapay.md) - deposits, payouts, refunds, remittances, checkouts, payment pages, finances
 
 ## Project Structure
 
@@ -169,6 +73,7 @@ try (MtnCongoClient client = new MtnCongoClient(config)) {
 | `paymux-java-core` | Core contracts, HTTP abstraction, and shared models |
 | `paymux-java-http-client` | Default HTTP client implementation |
 | `paymux-java-mtn-congo` | MTN Congo provider implementation |
+| `paymux-java-pawapay` | PawaPay aggregator implementation |
 
 ## Design Principles
 
@@ -179,7 +84,7 @@ try (MtnCongoClient client = new MtnCongoClient(config)) {
 
 ## Roadmap
 
-The repository currently focuses on MTN Congo. Additional operator modules will be added as the shared core stabilizes and provider integrations are implemented.
+The repository currently ships MTN Congo and PawaPay. Additional operator modules will be added as the shared core stabilizes and provider integrations are implemented.
 
 ## License
 

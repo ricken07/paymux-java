@@ -54,4 +54,18 @@ public interface CashoutOperation {
      * @throws IllegalArgumentException if the request contains invalid parameters
      */
     CashoutResponse cashout(CashoutRequest request) throws CashoutException;
+
+    /**
+     * Retrieves the status of a previously initiated cashout.
+     * <p>
+     * Some providers process cashouts asynchronously. Use this method to verify the final
+     * status of a cashout that was reported as PENDING when it was initiated, or to
+     * reconcile a cashout for which no notification was received.
+     * </p>
+     *
+     * @param transactionId the unique transaction identifier returned when the cashout was initiated
+     * @return the current status of the cashout
+     * @throws CashoutException if the status check fails or the transaction is unknown to the provider
+     */
+    CashoutResponse getCashoutStatus(String transactionId) throws CashoutException;
 }

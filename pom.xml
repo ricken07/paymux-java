@@ -42,6 +42,7 @@
     <module>paymux-java-core</module>
     <module>paymux-java-http-client</module>
     <module>paymux-java-mtn-congo</module>
+    <module>paymux-java-pawapay</module>
   </modules>
 
   <properties>

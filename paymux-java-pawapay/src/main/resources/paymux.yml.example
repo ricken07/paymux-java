@@ -1,0 +1,105 @@
+# ==============================================================================
+# Paymux Configuration Example - PawaPay (YAML Format)
+# ==============================================================================
+# This file provides an example YAML configuration for the PawaPay client.
+# Copy this file to src/main/resources/paymux.yml and fill in your actual
+# credentials.
+#
+# IMPORTANT: Never commit your actual API token to version control!
+# Add paymux.yml to your .gitignore file.
+#
+# ENVIRONMENT VARIABLES SUPPORT:
+# You can use environment variables in your configuration using the syntax:
+#   ${ENV_VAR_NAME}           - Required: throws exception if not set
+#   ${ENV_VAR_NAME:default}   - Optional: uses default value if not set
+#
+# Example:
+#   api-token: ${PAWAPAY_API_TOKEN}
+#   production: ${PAWAPAY_PRODUCTION:false}
+# ==============================================================================
+
+paymux:
+  pawapay:
+    # ----------------------------------------------------------------------
+    # Required Configuration
+    # ----------------------------------------------------------------------
+
+    # API Token (bearer token)
+    # Generate it from the PawaPay Dashboard (System configuration > API tokens).
+    # Sandbox and production accounts have different tokens.
+    # Using environment variable (recommended for security):
+    api-token: ${PAWAPAY_API_TOKEN}
+    # Or hardcode (not recommended for production):
+    # api-token: YOUR_API_TOKEN_HERE
+
+    # ----------------------------------------------------------------------
+    # Optional Configuration
+    # ----------------------------------------------------------------------
+
+    # Production Mode
+    # true  -> https://api.pawapay.io/
+    # false -> https://api.sandbox.pawapay.io/
+    # Default: false
+    production: false
+
+    # Base URL
+    # Override the default PawaPay API base URL (rarely needed)
+    # Default: Auto-detected based on production flag
+    # base-url: https://api.sandbox.pawapay.io/
+
+    # Connection Timeout (milliseconds)
+    # Default: 30000 (30 seconds)
+    # connection-timeout: 30000
+
+    # Request Timeout (milliseconds)
+    # Default: 60000 (60 seconds)
+    # request-timeout: 60000
+
+    # Public Key Cache TTL (seconds)
+    # How long the PawaPay public keys used to verify callback signatures are cached
+    # Default: 3600 (1 hour)
+    # public-key-cache-ttl: 3600
+
+    # Signature Clock Skew (seconds)
+    # Tolerated clock difference when validating the created/expires window of
+    # callback signatures
+    # Default: 120 (2 minutes)
+    # signature-clock-skew: 120
+
+    # --------------------------------------------------------------------------
+    # Outbound request signing (optional, disabled by default)
+    # --------------------------------------------------------------------------
+    # Signs financial requests (deposits, payouts, bulk payouts, refunds) with
+    # RFC 9421 HTTP Message Signatures, so PawaPay only accepts them if signed
+    # with your key.
+    #
+    # Prerequisites (done once, in the PawaPay Dashboard, not by this library):
+    #   1. Generate a key pair (EC or RSA).
+    #   2. Upload the PUBLIC key under "System configuration > API tokens >
+    #      Signed requests" and give it a name - that name is signing.key-id.
+    #   3. Enable "Signed requests".
+    # This library only signs with the PRIVATE key you supply here.
+    signing:
+      # Enable outbound request signing. Default: false
+      enabled: false
+
+      # The name you gave the public key in the PawaPay Dashboard
+      # key-id: CUSTOMER_TEST_KEY
+
+      # One of: ecdsa-p256-sha256, ecdsa-p384-sha384, rsa-v1_5-sha256, rsa-pss-sha512
+      # algorithm: ecdsa-p256-sha256
+
+      # The private key: exactly ONE of the two below. Never commit an actual
+      # private key to version control.
+
+      # Option A: path to a PEM (PKCS8) or base64 DER private key file
+      # private-key-path: ${PAWAPAY_SIGNING_KEY_PATH}
+
+      # Option B: the key content inline (PEM or base64), e.g. from an env var
+      # private-key: ${PAWAPAY_SIGNING_KEY_PEM}
+
+      # How long a signature stays valid, in seconds. Default: 60
+      # validity-seconds: 60
+
+    # NOTE: Callback URLs are configured per merchant account in the PawaPay
+    # Dashboard, not in this file.

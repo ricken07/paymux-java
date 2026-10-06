@@ -47,6 +47,12 @@
 
       <dependency>
         <groupId>com.rickenbazolo</groupId>
+        <artifactId>paymux-java-pawapay</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.rickenbazolo</groupId>
         <artifactId>paymux-java-airtel-congo</artifactId>
         <version>${project.version}</version>
       </dependency>

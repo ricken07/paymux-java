@@ -1,0 +1,18 @@
+# Test configuration for PawaPay tests
+# These are example/test credentials - replace with real ones for actual testing
+
+paymux:
+  pawapay:
+    # Test API token (use a sandbox token here)
+    api-token: "test-api-token-yaml"
+
+    # Environment settings
+    production: false
+
+    # Test timeouts
+    connection-timeout: 10000
+    request-timeout: 20000
+
+    # Signature verification settings
+    public-key-cache-ttl: 600
+    signature-clock-skew: 60

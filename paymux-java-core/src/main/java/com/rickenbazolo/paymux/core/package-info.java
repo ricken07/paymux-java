@@ -9,7 +9,7 @@
  *   <li>{@code com.rickenbazolo.paymux.core.operations} - Common operation interfaces</li>
  * </ul>
  * <p>
- * Operator-specific modules (for example {@code paymux-java-mtn-congo} and future provider modules)
+ * Operator-specific modules (for example {@code paymux-java-mtn-congo}, {@code paymux-java-pawapay} and future provider modules)
  * implement these interfaces to provide concrete implementations for each Mobile Money provider.
  *
  * @author Ricken Bazolo
