@@ -104,7 +104,7 @@ jobs:
 
           # Only commit if there are changes
           if [[ -n $(git status --porcelain) ]]; then
-            git add pom.xml
+            git add -u -- '*pom.xml'
             git commit -m "chore: release version ${{ steps.get_version.outputs.VERSION }}"
             git push origin HEAD:main
           else
@@ -170,7 +170,7 @@ jobs:
 
           # Only commit if there are changes
           if [[ -n $(git status --porcelain) ]]; then
-            git add pom.xml
+            git add -u -- '*pom.xml'
             git commit -m "chore: bump version to ${{ steps.get_version.outputs.NEXT_VERSION }} [skip ci]"
             git push origin HEAD:main
           else
